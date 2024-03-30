@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="static/favicon.png">
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js"
+			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			  crossorigin="anonymous">
+    </script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap");
+        html, body {
+            font-family: 'Eczar';
+            font-size: larger;
+            background-color: black;
+            color: white
+        }
+    </style>
+    <title>CPU Meat-er</title>
+</head>
+<body>
+    <h1>Meat your Meter:</h1>
+    <p>CPU Usage <span id="cpu_usage">00.0</span>%</p>
+
+    <progress id="progress_usage" max=100 value = 0></progress>
+    <script>
+        function fetch_cpu_usage(){
+            $.get('api/cpu', function(data) {
+                console.log(data);
+                $('#cpu_usage').html(data);
+                $('#progress_usage').val(data);
+            })
+        }
+        setInterval(fetch_cpu_usage, 1000)
+    </script>
+</body>
+</html>
