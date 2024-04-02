@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import psutil
 import flaskwebgui
+import sys
 app = Flask(__name__)
 
 
@@ -34,9 +35,14 @@ class myFlaskUI(flaskwebgui.FlaskUI):
 
         return flags
 if __name__ == '__main__':
-    # To run in browser on port 5000:
-    # app.run(debug=True)
-    gui = myFlaskUI(app=app, server="flask", width=600, height=600)
-    # print(gui.profile_dir)
-    gui.run()
+    try:
+        if sys.argv[1] == "b":
+            # To run in browser on port 5000:
+            app.run(debug=True)
+        else:
+            gui = myFlaskUI(app=app, server="flask", width=600, height=600)
+            gui.run()
+    except:
+        gui = myFlaskUI(app=app, server="flask", width=600, height=600)
+        gui.run()
     
