@@ -18,4 +18,4 @@
   5. select fonts.googleapis.com link
   6. create "style" tag
   7. add "@import url("your fonts.googleapis.com link")
-- 🐇 element1 (e.g. "<p1></p1>") removes newline from end of element, whereas element (e.g. "<p></p>") creates newline at end of element
+- 🐇 element1 (e.g. "\<p1>\</p1>") removes newline from end of element, whereas element (e.g. "\<p>\</p>") creates newline at end of element
