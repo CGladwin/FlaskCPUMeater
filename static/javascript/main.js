@@ -6,3 +6,5 @@ function fetch_cpu_usage(){
     })
 }
 setInterval(fetch_cpu_usage, 1000)
+
+document.addEventListener("contextmenu",function(e){e.preventDefault();}, false);
