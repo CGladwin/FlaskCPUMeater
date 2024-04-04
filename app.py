@@ -4,7 +4,6 @@ import flaskwebgui
 import sys
 app = Flask(__name__)
 
-
 @app.route('/')
 def hello() -> str:
     return render_template('index.html')
