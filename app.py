@@ -8,6 +8,10 @@ app = Flask(__name__)
 def hello() -> str:
     return render_template('index.html')
 
+@app.route('/<page>')
+def second(page) -> str:
+    return render_template(f'{page}.html')
+
 @app.route('/api/cpu')
 def api()  -> str:
     return str(psutil.cpu_percent(interval=0.1))
