@@ -4,10 +4,13 @@ import flaskwebgui
 import sys
 app = Flask(__name__)
 
-
 @app.route('/')
 def hello() -> str:
     return render_template('index.html')
+
+@app.route('/<page>')
+def second(page) -> str:
+    return render_template(f'{page}.html')
 
 @app.route('/api/cpu')
 def api()  -> str:
@@ -34,15 +37,13 @@ class myFlaskUI(flaskwebgui.FlaskUI):
         flags.extend([f"--app={self.url}"])
 
         return flags
+    
 if __name__ == '__main__':
-    try:
-        if sys.argv[1] == "b":
+    if len(sys.argv) >= 2 and sys.argv[1] == "b":
             # To run in browser on port 5000:
             app.run(debug=True)
-        else:
-            gui = myFlaskUI(app=app, server="flask", width=600, height=600)
-            gui.run()
-    except:
+    else:
         gui = myFlaskUI(app=app, server="flask", width=600, height=600)
         gui.run()
+    
     

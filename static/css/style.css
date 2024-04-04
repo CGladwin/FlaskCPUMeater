@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap");
+
+body {
+    font-family: 'Eczar';
+    font-size: larger;
+    background-color: black;
+    color: white
+}
+
+h1{
+    color: red;
+}
